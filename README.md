@@ -1,12 +1,20 @@
-# Library Management System
+# **Library Management System**
 
-A simple library management system built with **FastAPI** (Python) and **PostgreSQL**. It lets you manage books, members, and loan transactions through a REST API.
+**A simple library management system built with FastAPI (Python) and PostgreSQL.** It lets you manage books, members, and loan transactions through a REST API, with a React frontend for easy interaction.
 
 ---
 
-## Setting Up the Database
+## **Live Demo**
 
-Before running the app, you need a running PostgreSQL instance. Use the command below to spin one up with Docker:
+**Frontend:** **http://20.81.42.105:3000/**
+
+**API Docs (Swagger):** **http://20.81.42.105:8080/docs**
+
+---
+
+## **Setting Up the Database**
+
+**Before running the app, you need a running PostgreSQL instance.** Use the command below to spin one up with Docker:
 
 ```bash
 docker run --name my-postgres \
@@ -17,7 +25,7 @@ docker run --name my-postgres \
   -d postgres:16
 ```
 
-### pgAdmin (optional, for database GUI)
+### **pgAdmin (optional, for database GUI)**
 
 If you want a graphical interface to browse the database, you can also run pgAdmin:
 
@@ -29,27 +37,25 @@ docker run --name my-pgadmin \
   -d dpage/pgadmin4
 ```
 
-Then open http://localhost:5050 in your browser and connect using the postgres credentials above.
+Then open **http://localhost:5050** in your browser and connect using the postgres credentials above.
 
 ---
 
-## Running the Application
+## **Running the Application**
 
-The easiest way to run everything together (API + database + frontend) is with Docker Compose. From the root of the project:
+**The easiest way to run everything together (API + database + frontend) is with Docker Compose.** From the root of the project:
 
 ```bash
 docker compose up --build
 ```
 
 This will start:
-- PostgreSQL on port `5432`
-- FastAPI backend on port `8080`
-- React frontend on port `3000`
-- The database schema and sample data are loaded automatically on first run.
+- **PostgreSQL** on port `5432`
+- **FastAPI backend** on port `8080`
+- **React frontend** on port `3000`
+- **The database schema and sample data are loaded automatically on first run.**
 
-
-
-### Stopping the application
+### **Stopping the application**
 
 ```bash
 docker compose down
@@ -64,51 +70,51 @@ docker compose up --build
 
 ---
 
-## API Documentation (Swagger)
+## **API Documentation (Swagger)**
 
 Once the app is running, the interactive API docs are available at:
 
 **http://localhost:8080/docs**
 
-You can test all endpoints directly from the browser there.
+**You can test all endpoints directly from the browser there.**
 
 ---
 
-## API Endpoints
+## **API Endpoints**
 
-### Books
+### **Books**
 
-| Method | Endpoint | Description |
+| **Method** | **Endpoint** | **Description** |
 |--------|----------|-------------|
-| GET | `/api/books` | Get all books |
-| GET | `/api/books/{book_id}` | Get a specific book by ID |
-| POST | `/api/books` | Add a new book |
-| PUT | `/api/books/{book_id}` | Update book details |
+| **GET** | `/api/books` | Get all books |
+| **GET** | `/api/books/{book_id}` | Get a specific book by ID |
+| **POST** | `/api/books` | Add a new book |
+| **PUT** | `/api/books/{book_id}` | Update book details |
 
-### Members
+### **Members**
 
-| Method | Endpoint | Description |
+| **Method** | **Endpoint** | **Description** |
 |--------|----------|-------------|
-| GET | `/api/members` | Get all members |
-| GET | `/api/members/{member_id}` | Get a specific member by ID |
-| POST | `/api/members` | Register a new member |
-| PUT | `/api/members/{member_id}` | Update member details |
+| **GET** | `/api/members` | Get all members |
+| **GET** | `/api/members/{member_id}` | Get a specific member by ID |
+| **POST** | `/api/members` | Register a new member |
+| **PUT** | `/api/members/{member_id}` | Update member details |
 
-### Loans
+### **Loans**
 
-| Method | Endpoint | Description |
+| **Method** | **Endpoint** | **Description** |
 |--------|----------|-------------|
-| GET | `/api/loans` | Get all loans (optional filters: `memberId`, `status`) |
-| POST | `/api/loans/borrow` | Borrow a book |
-| POST | `/api/loans/{loan_id}/return` | Return a borrowed book |
+| **GET** | `/api/loans` | Get all loans (optional filters: `memberId`, `status`) |
+| **POST** | `/api/loans/borrow` | Borrow a book |
+| **POST** | `/api/loans/{loan_id}/return` | Return a borrowed book |
 
 ---
 
-## Database Schema
+## **Database Schema**
 
-The database has three tables: `books`, `members`, and `loans`.
+**The database has three tables: `books`, `members`, and `loans`.**
 
-### `books`
+### **`books`**
 
 ```sql
 CREATE TABLE books (
@@ -125,7 +131,7 @@ CREATE TABLE books (
 );
 ```
 
-### `members`
+### **`members`**
 
 ```sql
 CREATE TABLE members (
@@ -139,7 +145,7 @@ CREATE TABLE members (
 );
 ```
 
-### `loans`
+### **`loans`**
 
 ```sql
 CREATE TABLE loans (
@@ -158,4 +164,4 @@ CREATE INDEX idx_loans_book   ON loans(book_id);
 CREATE INDEX idx_loans_status ON loans(status);
 ```
 
- When a book is borrowed, `available_copies` decreases by one and goes back up when it is returned.
+**When a book is borrowed, `available_copies` decreases by one and goes back up when it is returned.**
