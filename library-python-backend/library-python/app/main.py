@@ -13,7 +13,7 @@ app = FastAPI(title="Neighborhood Library Service")
 # Allow the local dev frontends (React on 3000, Angular on 4200) to call the API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:4200"],
+    allow_origins=["*", "http://localhost:3000", "http://localhost:4200"],
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
