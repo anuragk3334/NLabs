@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+.navbar {
+  background: #2c3e50;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar h1 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 25px 0 0;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: #ddd;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.navbar button:hover {
+  color: #fff;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+input,
+select {
+  padding: 6px;
+  margin: 4px 6px 4px 0;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #2c7be5;
+  color: #fff;
+  border: none;
+  padding: 7px 13px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+button:hover {
+  background: #1a68d1;
+}
+
+button.secondary {
+  background: #888;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.error {
+  color: #c0392b;
+  margin-top: 10px;
+}
+
+.field-error {
+  display: block;
+  color: #c0392b;
+  font-size: 12px;
+  margin: -2px 0 4px 0;
+}
+
+input.input-error {
+  border-color: #c0392b;
+}
+
+.overdue {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.spinner-container {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2c7be5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
